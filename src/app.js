@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const App = () => {
+const App = (state) => {
+  console.info('state', state);
   return (
     <div>
       <h1>Redux Examples</h1>
@@ -8,4 +10,10 @@ const App = () => {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(App);
