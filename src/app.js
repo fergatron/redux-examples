@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const App = (state) => {
-  console.info('state', state);
-  return (
-    <div>
-      <h1>Redux Examples</h1>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {} // component state (not application)
+  }
+
+  render() {
+    console.log(this.state, this.props);
+    return (
+      <div>
+        <h1>Redux Examples</h1>
+        <p>Welcome </p>
+        <form>
+          <label>First Name: </label>
+          <input type='text' />
+          <button>New store value</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
