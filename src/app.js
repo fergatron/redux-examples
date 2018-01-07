@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+import { fetchUser } from './actions';
 
 class App extends Component {
   constructor(props) {
@@ -7,12 +10,15 @@ class App extends Component {
     this.state = {} // component state (not application)
   }
 
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
-    console.log(this.state, this.props);
     return (
       <div>
         <h1>Redux Examples</h1>
-        <p>Welcome </p>
+        <p>Welcome { this.props.user.firstName }, you must be from the Store.</p>
         <form>
           <label>First Name: </label>
           <input type='text' />
@@ -29,4 +35,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchUser: fetchUser
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
