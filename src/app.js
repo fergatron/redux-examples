@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -14,11 +15,15 @@ class App extends Component {
     this.props.fetchUser();
   }
 
+  componentWillReceiveProps(newProps) {
+    console.info('new props', newProps);
+  }
+
   render() {
     return (
       <div>
         <h1>Redux Examples</h1>
-        <p>Welcome { this.props.user.firstName }, you must be from the Store.</p>
+        <p>Welcome { this.props.user.firstName } { this.props.user.lastName }, you must be from the Store.</p>
         <form>
           <label>First Name: </label>
           <input type='text' />
@@ -39,6 +44,12 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     fetchUser: fetchUser
   }, dispatch);
+}
+
+// used to avert linter, functional without it
+App.propTypes = {
+  user: PropTypes.object,
+  fetchUser: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

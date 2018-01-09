@@ -1,12 +1,12 @@
 # Get Redux State to work in a functional vs. component
-The easiest misconception with developers trying to understand `component state` and `redux state` is the scope of each state. Redux acts as the global store for the entire application. The state of the component is simply scoped to just that component. A functional component doesn't have local state while a React component (a smart component) does have local state.
+The easiest misconception with developers trying to understand `component state` and `redux state` is the scope of each state. The term `state` is used very loosely. Redux acts as the global store for the entire application. The state of the component is simply scoped to just that component. A functional component doesn't have local state while a React component (a smart component) does have local state.
 
 ## Functional
-```.js
-const App = (state) => {
+```js
+const App = (props) => {
   return (
     <div>
-      { state.user.firstName }
+      { props.user.firstName }
     </div>
   );
 }
@@ -20,12 +20,18 @@ export default connect(mapStateToProps)(App);
 ```
 
 ## React Component
-```.js
+A smart component handles state differently. Your component just became _self aware_ so now it has both local state and global state. Global state is actually referred to as `props` due to the constructor.
+
+```js
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <div>
-        { this.state.user.firstName }
+        { this.props.user.firstName }
       </div>
     );
   }
