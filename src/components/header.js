@@ -1,17 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { PageHeader } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
-const Header = (props) => {
+// bootstrap
+import {
+  Nav,
+  Navbar,
+  NavItem
+} from 'react-bootstrap';
+
+const Header = () => {
   return (
-    <div>
-      <PageHeader>{ props.title }</PageHeader>
-    </div>
+    <Navbar collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <Link to='/'>Redux Examples</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <LinkContainer to='/simple'>
+            <NavItem eventKey={1}>Simple</NavItem>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
-}
-
-Header.propTypes = {
-  title: PropTypes.string
 }
 
 export default Header;
