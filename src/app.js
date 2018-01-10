@@ -1,55 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { fetchUser } from './actions';
+// bootstrap
+import {
+  Col,
+  Grid,
+  Row
+} from 'react-bootstrap';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {} // component state (not application)
-  }
+// components
+import Header from './components/header';
 
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+const App = (props) => {
+  return (
+    <div>
+      <Grid>
+        <Row>
+          <Col xs={12}>
+            <Header title='Redux Examples' />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <p>Welcome <strong>{ props.first } { props.last }</strong> to Redux Examples. The purpose of this app is to demonstrate various usages to the state-management tool, Redux.</p>
+          </Col>
+        </Row>
+      </Grid>
 
-  componentWillReceiveProps(newProps) {
-    console.info('new props', newProps);
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Redux Examples</h1>
-        <p>Welcome { this.props.user.firstName } { this.props.user.lastName }, you must be from the Store.</p>
-        <form>
-          <label>First Name: </label>
-          <input type='text' />
-          <button>New store value</button>
-        </form>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    first: state.firstName,
+    last: state.lastName
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    fetchUser: fetchUser
-  }, dispatch);
-}
-
-// used to avert linter, functional without it
 App.propTypes = {
-  user: PropTypes.object,
-  fetchUser: PropTypes.func
+  first: PropTypes.string,
+  last: PropTypes.string
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
