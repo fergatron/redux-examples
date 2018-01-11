@@ -6,6 +6,9 @@ The purpose of this application is to document what the basic building blocks to
 npm install && npm start
 ```
 
+## Usage
+The details on each topic will be in the `/docs` directory. The source code is functional once you run the app, but it's mainly for reference.
+
 ## Basic structure
 ```
 +-- dist
@@ -16,6 +19,7 @@ npm install && npm start
 |   +-- app.js
 +-- index.js
 ```
+
 ### index.js
 The main purpose of this file is to be the root of the application. Node is configured to look for this file as the starting point. As it relates to React there are various key imports happening here:
 * **react** - the core library
