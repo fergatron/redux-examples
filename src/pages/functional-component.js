@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 const Functional = (props) => {
+  console.info('inside Functional', this, props)
   return (
     <div>
       <PageHeader>Simplest Implementation of Redux</PageHeader>

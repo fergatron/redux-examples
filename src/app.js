@@ -16,7 +16,8 @@ import Header from './components/header';
 import Functional from './pages/functional-component';
 import Home from './pages/home';
 
-const App = () => {
+const App = (props) => {
+  console.info('inside App function', this, props);
   return (
     <div>
       <Header />

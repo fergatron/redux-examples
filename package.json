@@ -5,14 +5,14 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fergatron/redux"
+    "url": "https://github.com/fergatron/redux-examples"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
+    "react-redux": "^5.0.7",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
@@ -24,21 +24,21 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
-    "css-loader": "^0.28.7",
-    "eslint": "^4.14.0",
-    "eslint-plugin-react": "^7.5.1",
-    "file-loader": "^1.1.6",
+    "css-loader": "^0.28.10",
+    "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^1.1.9",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
     "build": "webpack -d --color",
     "lint": "eslint ./src",
-    "start": "webpack-dev-server --color",
+    "start": "webpack-dev-server --hot --color",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marc Ferguson",
