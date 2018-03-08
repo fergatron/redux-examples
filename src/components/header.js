@@ -23,6 +23,9 @@ const Header = () => {
           <LinkContainer to='/simple'>
             <NavItem eventKey={1}>Simple</NavItem>
           </LinkContainer>
+          <LinkContainer to='/shopping'>
+            <NavItem eventKey={2}>Shopping List</NavItem>
+          </LinkContainer>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

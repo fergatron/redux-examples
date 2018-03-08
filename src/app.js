@@ -15,6 +15,7 @@ import Header from './components/header';
 // pages
 import Functional from './pages/functional-component';
 import Home from './pages/home';
+import ShoppingList from './pages/shopping';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Switch>
               <Route path='/' exact component={Home} />
               <Route path='/simple' component={Functional} />
+              <Route path='/shopping' component={ShoppingList} />
             </Switch>
           </Col>
         </Row>
