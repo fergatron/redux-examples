@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 
 // bootstrap
 import PageHeader from 'react-bootstrap/lib/PageHeader';
 
-const ShoppingList = () => {
+const ShoppingList = (props) => {
     return (
-        <div>
+        <Fragment>
             <PageHeader>The Shopping List</PageHeader>
-        </div>
+        </Fragment>
     );
 }
 
-export default ShoppingList;
+function mapStateToProps(state) {
+    return {
+        state: state
+    };
+}
+
+export default connect(mapStateToProps, null)(ShoppingList);
